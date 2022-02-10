@@ -33,7 +33,9 @@ RUN opt/wget2/bin/wget --version
 
 #JAVA 8u45
 
-RUN curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jdk_8u45-b14-4_amd64.deb && \
+RUN curl -o /tmp/openjre.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jre_8u45-b14-4_amd64.deb&& \
+    apt-get install /tmp/openjre.deb && \
+    curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jdk_8u45-b14-4_amd64.deb && \
     apt-get install /tmp/openjdk.deb
     
 #TOMCAT 7.0.34
