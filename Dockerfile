@@ -36,11 +36,9 @@ RUN curl -o /tmp/libgif4.deb https://snapshot.debian.org/archive/debian/20061113
     apt-get install -y /tmp/libgif4.deb && \
     curl -o /tmp/libpng12.deb https://snapshot.debian.org/archive/debian/20061122T000000Z/pool/main/libp/libpng/libpng12-0_1.2.13-4_amd64.deb && \
     apt-get install -y /tmp/libpng12.deb && \
-    curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u45-b14-4_amd64.deb && \
+    curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20160624T224330Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u91-b14-3_amd64.deb && \
     apt-get install -y /tmp/openjre-headless.deb && \
-    curl -o /tmp/openjre.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jre_8u45-b14-4_amd64.deb && \
-    apt-get install -y /tmp/openjre.deb && \
-    curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jdk_8u45-b14-4_amd64.deb && \
+    curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u91-b14-2_amd64.deb && \
     apt-get install -y /tmp/openjdk.deb
     
 #TOMCAT 7.0.34
