@@ -25,4 +25,4 @@ RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.t
     rm -rf wget-1.15 && \
     rm *.tar.gz
 
-RUN ls -l /opt/wget2/bin
+RUN opt/wget2/bin/wget --version
