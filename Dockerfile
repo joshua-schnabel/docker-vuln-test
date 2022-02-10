@@ -56,7 +56,7 @@ RUN curl -o /opt/java_libs/commons-collections4-4.0.jar https://repo1.maven.org/
 
 # npm CVE-2020-11022 CVE-2019-10742
     
-RUN cd / && mkdir /media/apps/ && mkdir /media/apps/npm && find npm 
+RUN cd / && mkdir /media/apps/ && mkdir /media/apps/npm && find . -name "npm*"
 
 COPY ./npm /media/apps/npm
 
