@@ -34,9 +34,7 @@ RUN opt/wget2/bin/wget --version
 #JAVA 8u45
 RUN curl -o /tmp/libgif4.deb https://snapshot.debian.org/archive/debian/20061113T000000Z/pool/main/g/giflib/libgif4_4.1.4-1_amd64.deb && \
     apt-get install -y /tmp/libgif4.deb && \
-    curl -o /tmp/libpng12.deb https://snapshot.debian.org/archive/debian/20061122T000000Z/pool/main/libp/libpng/libpng12-0_1.2.13-4_amd64.deb && \
-    apt-get install -y /tmp/libpng12.deb && \
-    curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20160624T224330Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u91-b14-3_amd64.deb && \
+    curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u91-b14-2_amd64.deb && \
     apt-get install -y /tmp/openjre-headless.deb && \
     curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u91-b14-2_amd64.deb && \
     apt-get install -y /tmp/openjdk.deb
