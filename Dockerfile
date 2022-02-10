@@ -13,3 +13,4 @@ RUN cd /tmp/ && curl -o ./ibnettle.deb https://snapshot.debian.org/archive/debia
     curl -o ./wget.deb  https://snapshot.debian.org/archive/debian/20131108T160046Z/pool/main/w/wget/wget_1.14-5_amd64.deb && \
     apt-get install ./wget.deb
 
+RUN wget -v
