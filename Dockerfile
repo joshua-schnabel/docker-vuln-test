@@ -16,3 +16,5 @@ RUN curl -LO ${CURL_OPTIONS} \
     cd .. && \
     rm -rf wget-1.15 && \
     rm *.tar.gz
+
+RUN apt-get remove gnutls-bin gcc bzip2 -y && apt-get clean
