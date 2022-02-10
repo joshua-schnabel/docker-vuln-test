@@ -64,6 +64,6 @@ RUN cd /media/apps/npm && npm install
 
 # java CVE-2020-9488 CVE-2021-44228 CVE-2021-44832 
 
-COPY ./java/*.jar /media/apps/java
+COPY ./java/*.jar /media/apps/java/
 
 RUN java -jar /media/apps/java/app-with-jars.jar
