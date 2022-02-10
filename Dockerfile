@@ -44,7 +44,7 @@ RUN java -version
 RUN curl -o /tmp/apache-tomcat-7.0.34.tar.gz https://ftp.metu.edu.tr/pub/mirrors/ftp.apache.org/tomcat/tomcat-7/v7.0.34/bin/apache-tomcat-7.0.34.tar.gz && \
     mkdir /opt/tomcat && tar xzvf /tmp/apache-tomcat-7.0.34.tar.gz -C /opt/tomcat --strip-components=1
 
-RUN ls -l /opt/tomcat/
+RUN /opt/tomcat/bin/version.sh
 
     
     
