@@ -32,17 +32,18 @@ RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.t
 RUN opt/wget2/bin/wget --version
 
 #JAVA 8u45
-RUN curl -o /tmp/libgif4.deb https://snapshot.debian.org/archive/debian/20061113T000000Z/pool/main/g/giflib/libgif4_4.1.4-1_amd64.deb && \
-    apt-get install -y /tmp/libgif4.deb && \
-    curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u91-b14-2_amd64.deb && \
+RUN curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u91-b14-2_amd64.deb && \
     apt-get install -y /tmp/openjre-headless.deb && \
     curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u91-b14-2_amd64.deb && \
     apt-get install -y /tmp/openjdk.deb
+    
+RUN java --version
     
 #TOMCAT 7.0.34
 
 RUN curl -o /tmp/apache-tomcat-7.0.34.tar.gz https://ftp.metu.edu.tr/pub/mirrors/ftp.apache.org/tomcat/tomcat-7/v7.0.34/bin/apache-tomcat-7.0.34.tar.gz && \
     mkdir /opt/tomcat && tar xzvf /tmp/apache-tomcat-7.0.34.tar.gz -C /opt/tomcat --strip-components=1
-    
+
+RUN /opt/tomcat/apache-tomcat-7.0.34/bin/version.sh
     
     
