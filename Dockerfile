@@ -1,6 +1,6 @@
 FROM debian:9
 
-RUN apt-get update && apt-get install gcc bzip2 nodejs npm curl libgnutls28-dev make -y
+RUN apt-get update && apt-get install gcc bzip2 nodejs curl libgnutls28-dev make -y
 
 #WGET 1.14 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
