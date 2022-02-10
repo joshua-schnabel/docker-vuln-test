@@ -46,5 +46,14 @@ RUN curl -o /tmp/apache-tomcat-7.0.34.tar.gz https://ftp.metu.edu.tr/pub/mirrors
 
 RUN /opt/tomcat/bin/version.sh
 
+#Apache Commons Compress » 1.14 CVE-2021-36090 CVE-2021-35517 CVE-2021-35516 CVE-2021-35515 CVE-2018-11771
+
+RUN mkdir /opt/java_libs && curl -o /opt/java_libs/cc.jar https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14.jar
+
+#Apache Commons Collections » 4.0 CVE-2015-6420
+
+RUN curl -o /opt/java_libs/commons-collections4-4.0.jar https://repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.0/commons-collections4-4.0.jar
+
+
     
     
