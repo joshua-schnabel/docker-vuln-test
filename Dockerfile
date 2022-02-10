@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install curl gnutls-devel gcc bzip2 -y && apt-get clean
+RUN apt-get update && apt-get install curl gnutls gcc bzip2 -y && apt-get clean
 
 # wget - command line utility (manual install)
 #
