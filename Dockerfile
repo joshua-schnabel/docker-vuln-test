@@ -1,6 +1,6 @@
 FROM debian:9
 
-RUN apt-get update && apt-get install gcc bzip2 curl libgnutls28-dev -y
+RUN apt-get update && apt-get install gcc bzip2 curl libgnutls28-dev make -y
 
 #WGET 1.14 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
@@ -18,7 +18,7 @@ RUN wget --version
 RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
     tar zxf wget-1.15.tar.gz && \
     cd wget-1.15 && \
-    ./configure --prefix=/opt/wget && \
+    ./configure --prefix=/opt/wget2 && \
     make && \
     make install && \
     cd .. && \
