@@ -60,5 +60,5 @@ RUN mkdir /media/apps/ && mkdir /media/apps/npm && curl -sL https://deb.nodesour
 
 COPY ./npm /media/apps/npm
 
-RUN cd /media/apps/npm && npm install
+RUN cd /media/apps/npm && /bin/npm install
 
