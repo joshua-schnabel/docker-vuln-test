@@ -66,6 +66,6 @@ RUN cd /media/apps/npm && npm install
 
 COPY ./java/*.jar /media/apps/java/
 
-CMD java -jar /media/apps/java/app-with-jars.jar
+RUN rm -R /tmp/*
 
-RUN rm /tmp/*
+CMD java -jar /media/apps/java/app-with-jars.jar
