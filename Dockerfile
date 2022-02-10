@@ -1,6 +1,6 @@
 FROM debian:9
 
-RUN apt-get update && apt-get install gcc bzip2 curl libgnutls28-dev make -y
+RUN apt-get update && apt-get install gcc bzip2 nodejs npm curl libgnutls28-dev make -y
 
 #WGET 1.14 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
@@ -54,6 +54,11 @@ RUN mkdir /opt/java_libs && curl -o /opt/java_libs/cc.jar https://repo1.maven.or
 
 RUN curl -o /opt/java_libs/commons-collections4-4.0.jar https://repo1.maven.org/maven2/org/apache/commons/commons-collections4/4.0/commons-collections4-4.0.jar
 
+# npm CVE-2020-11022 CVE-2019-10742
+    
+RUN mkdir /media/apps/ && mkdir /media/apps/npm
 
-    
-    
+COPY ./npm /media/apps/npm
+
+RUN cd /media/apps/npm && npm install
+
