@@ -1,5 +1,5 @@
 FROM alpine:3.12
-RUN apk update && apk add curl gnutls-c++ gcc bzip2 -y && apk clean
+RUN apk update && apk --no-cache add curl gnutls-c++ gcc bzip2 && apk clean
 
 # wget - command line utility (manual install)
 #
