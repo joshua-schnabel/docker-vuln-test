@@ -12,8 +12,12 @@ RUN curl -o /tmp/ibnettle.deb https://snapshot.debian.org/archive/debian/2013050
     apt-get install /tmp/libgnutls.deb && \
     curl -o /tmp/wget.deb  https://snapshot.debian.org/archive/debian/20131108T160046Z/pool/main/w/wget/wget_1.14-5_amd64.deb && \
     apt-get install /tmp/wget.deb
+    
+
 
 RUN wget --version
+
+#WGET 1.15 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
 RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
     tar zxf wget-1.15.tar.gz && \
@@ -26,3 +30,16 @@ RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.t
     rm *.tar.gz
 
 RUN opt/wget2/bin/wget --version
+
+#JAVA 8u45
+
+RUN curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20150623T153504Z/pool/main/o/openjdk-8/openjdk-8-jdk_8u45-b14-4_amd64.deb && \
+    apt-get install /tmp/openjdk.deb
+    
+#TOMCAT 7.0.34
+
+RUN curl -o /tmp/apache-tomcat-7.0.34.tar.gz https://ftp.metu.edu.tr/pub/mirrors/ftp.apache.org/tomcat/tomcat-7/v7.0.34/bin/apache-tomcat-7.0.34.tar.gz && \
+    mkdir /opt/tomcat && tar xzvf /tmp/apache-tomcat-7.0.34.tar.gz -C /opt/tomcat --strip-components=1
+    
+    
+    
