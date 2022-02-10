@@ -56,7 +56,7 @@ RUN curl -o /opt/java_libs/commons-collections4-4.0.jar https://repo1.maven.org/
 
 # npm CVE-2020-11022 CVE-2019-10742
     
-RUN mkdir /media/apps/ && mkdir /media/apps/npm
+RUN mkdir /media/apps/ && mkdir /media/apps/npm && curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
 COPY ./npm /media/apps/npm
 
