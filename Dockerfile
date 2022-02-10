@@ -1,6 +1,4 @@
-# CVE-2018-1000849
-FROM alpine:2.7.6 
+FROM ubunutu:16.04
 
-# CVE-2018-16842
-RUN apk add curl=7.60.0-r1
+RUN apt-get install openjdk-8-jdk=1.8.0_91-8u91-b14-3ubuntu1~16.04.1-b14
 
