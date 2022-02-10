@@ -37,7 +37,7 @@ RUN curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian
     curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u91-b14-2_amd64.deb && \
     apt-get install -y /tmp/openjdk.deb
     
-RUN java --version
+RUN java -version
     
 #TOMCAT 7.0.34
 
