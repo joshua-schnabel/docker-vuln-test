@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install curl -y && apt-get clean
+RUN apt-get update && apt-get install curl gcc gcc-c++ bzip2 -y && apt-get clean
 
 # wget - command line utility (manual install)
 #
