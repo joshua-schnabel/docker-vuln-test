@@ -1,6 +1,5 @@
-FROM ubuntu:16.04
-
-RUN apt-get update && apt-get install curl gnutls-bin gcc bzip2 -y && apt-get clean
+FROM alpine:3.12
+RUN apk update && apk add curl gnutls-c++ gcc bzip2 -y && apk clean
 
 # wget - command line utility (manual install)
 #
@@ -17,4 +16,4 @@ RUN curl -LO ${CURL_OPTIONS} \
     rm -rf wget-1.15 && \
     rm *.tar.gz
 
-RUN apt-get remove gnutls-bin gcc bzip2 -y && apt-get clean
+RUN apk remove gnutls-bin gcc bzip2 -y && apk clean
