@@ -13,4 +13,14 @@ RUN curl -o /tmp/ibnettle.deb https://snapshot.debian.org/archive/debian/2013050
     curl -o /tmp/wget.deb  https://snapshot.debian.org/archive/debian/20131108T160046Z/pool/main/w/wget/wget_1.14-5_amd64.deb && \
     apt-get install /tmp/wget.deb
 
-RUN wget -v
+RUN wget --version
+
+RUN curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
+    tar zxf wget-1.15.tar.gz && \
+    cd wget-1.15 && \
+    ./configure --prefix=/opt/wget && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf wget-1.15 && \
+    rm *.tar.gz
