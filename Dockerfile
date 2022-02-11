@@ -1,6 +1,6 @@
 FROM debian:9
 
-RUN apt-get update && apt-get install gcc bzip2 nodejs curl libgnutls28-dev make -y
+RUN apt-get update && apt-get install gcc bzip2 nodejs curl libgnutls28-dev make -y && apt-get clean autoclean && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 #WGET 1.14 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
@@ -11,7 +11,7 @@ RUN curl -o /tmp/ibnettle.deb https://snapshot.debian.org/archive/debian/2013050
     curl -o /tmp/libgnutls.deb https://snapshot.debian.org/archive/debian/20131006T214656Z/pool/main/g/gnutls28/libgnutls28_3.2.4-5_amd64.deb && \
     apt-get install /tmp/libgnutls.deb && \
     curl -o /tmp/wget.deb  https://snapshot.debian.org/archive/debian/20131108T160046Z/pool/main/w/wget/wget_1.14-5_amd64.deb && \
-    apt-get install /tmp/wget.deb && rm -R /tmp/*
+    apt-get install /tmp/wget.deb && rm -R /tmp/* && apt-get clean autoclean && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN wget --version
 
