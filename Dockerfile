@@ -25,7 +25,7 @@ RUN cd /tmp/ && curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget
     make install && \
     cd .. && \
     rm -rf wget-1.15 && \
-    rm *.tar.gz && rm -R /tmp/*
+    rm *.tar.gz
 
 RUN opt/wget2/bin/wget --version
 
