@@ -1,20 +1,20 @@
-FROM fedora:25
+FROM fedora:24
 
-RUN yum install gcc bzip2 nodejs curl libgnutls28-dev make -y && yum clean all
+RUN yum install openssl-devel tar openssl-libs gcc bzip2 nodejs curl make openssl -y && yum clean all
 
 #WGET 1.14 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
 RUN curl -o /tmp/wget.rpm https://archive.fedoraproject.org/pub/archive/fedora/linux/updates/18/x86_64/wget-1.14-5.fc18.x86_64.rpm && \
-    yum install /tmp/wget.rpm && rm -R /tmp/* && yum clean all
+    yum install /tmp/wget.rpm -y && rm -R /tmp/* && yum clean all
 
 RUN wget --version
 
 #WGET 1.15 CVE-2019-5953 CVE-2018-20483 CVE-2018-20483 und mehr
 
-RUN cd /tmp/ && curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
+RUN ls -l /usr/lib64/ && cd /tmp/ && curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget/wget-1.15.tar.gz && \
     tar zxf wget-1.15.tar.gz && \
     cd wget-1.15 && \
-    ./configure --prefix=/opt/wget2 && \
+    ./configure --prefix=/opt/wget2 --with-ssl=openssl && \
     make && \
     make install && \
     cd .. && \
@@ -24,10 +24,9 @@ RUN cd /tmp/ && curl -LO http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/wget
 RUN opt/wget2/bin/wget --version
 
 #JAVA 8u45 CVE-2020-2604
-RUN curl -o /tmp/openjre-headless.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u91-b14-2_amd64.deb && \
-    apt-get install -y /tmp/openjre-headless.deb && \
-    curl -o /tmp/openjdk.deb https://snapshot.debian.org/archive/debian/20160423T042513Z/pool/main/o/openjdk-8/openjdk-8-jdk-headless_8u91-b14-2_amd64.deb && \
-    apt-get install -y /tmp/openjdk.deb && rm -R /tmp/*
+RUN curl -o /tmp/openjdk.rpm https://archive.fedoraproject.org/pub/archive/fedora/linux/updates/22/x86_64/j/java-1.8.0-openjdk-1.8.0.91-2.b14.fc22.x86_64.rpm && \
+    curl -o /tmp/openjdk-headless.rpm https://archive.fedoraproject.org/pub/archive/fedora/linux/updates/22/x86_64/j/java-1.8.0-openjdk-headless-1.8.0.91-2.b14.fc22.x86_64.rpm && \
+    yum install /tmp/openjdk-headless.rpm /tmp/openjdk.rpm -y && rm -R /tmp/* && yum clean all
     
 RUN java -version
     
@@ -48,7 +47,7 @@ RUN curl -o /opt/java_libs/commons-collections4-4.0.jar https://repo1.maven.org/
 
 # npm CVE-2020-11022 CVE-2019-10742
     
-RUN cd / && mkdir /media/apps/ && mkdir /media/apps/npm && curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y build-essential nodejs
+RUN cd / && mkdir /media/apps/ && mkdir /media/apps/npm && curl -sL https://rpm.nodesource.com/setup_16.x | bash -
 
 COPY ./npm /media/apps/npm
 
